@@ -1,0 +1,533 @@
+/* ここから下に記載していく */
+.wrap {
+    width: 100%; /* 親要素の幅に対して100% */
+    max-width: 1200px; /* 幅の上限を1,200pxに */
+    margin: 0 auto; /* LPの箱そのものを中央に置く */
+}
+
+* {
+  box-sizing: border-box; /* すべての要素で、幅と高さに余白や枠線を含めて計算する */
+}
+
+/* ページ全体の基本設定を行う */
+body {
+  /* ブラウザー標準のページ外側の余白をなくす */
+  margin: 0;
+  /* ページ全体の文字色を濃いグレーにする */
+  color: #222222;
+  /* ページ全体の基本フォントを指定する */
+  font-family: sans-serif;
+}
+
+/* ロゴとナビゲーションを含むヘッダーの設定 */
+.site-header {
+  /* ヘッダーの幅が1200pxを超えないようにする */
+  max-width: 1200px;
+  /* ヘッダーの最小の高さを82pxにする */
+  min-height: 82px;
+  /* ヘッダーを横方向の中央に配置する */
+  margin: 0 auto;
+  /* ヘッダーの左右に50pxの内側余白をつける */
+  padding: 0 50px;
+  /* 中の要素を横並びにする */
+  display: flex;
+  /* 中の要素を上下方向の中央にそろえる */
+  align-items: center;
+  /* ロゴを左、ナビを右に配置する */
+  justify-content: space-between;
+  /* ロゴとナビの間に最低24pxの間隔をつける */
+  gap: 24px;
+}
+
+/* ヘッダー内のロゴ画像の設定 */
+.site-header__logo img {
+  /* ロゴ画像の幅を260pxにする */
+  width: 260px;
+  /* 画面が狭い場合に親要素の幅を超えないようにする */
+  max-width: 100%;
+  /* 画像の縦横比を保ったまま高さを自動調整する */
+  height: auto;
+  /* 画像の下にできる余分な隙間を防ぐ */
+  display: block;
+}
+
+/* ナビゲーション項目全体の設定 */
+.global-nav__list {
+  /* リスト項目を横並びにする */
+  display: flex;
+  /* 項目を上下方向の中央にそろえる */
+  align-items: center;
+  /* ナビゲーション項目同士の間隔を50pxにする */
+  gap: 50px;
+  /* リストの標準の外側余白をなくす */
+  margin: 0;
+  /* リストの標準の内側余白をなくす */
+  padding: 0;
+  /* リスト項目の先頭につく「・」を消す */
+  list-style: none;
+  /* ナビゲーションの文字サイズを21pxにする */
+  font-size: 21px;
+}
+
+/* ナビゲーション内のリンクの設定 */
+.global-nav a {
+  /* リンクの文字色を親要素と同じにする */
+  color: inherit;
+  /* リンクの下線を消す */
+  text-decoration: none;
+}
+
+/* ナビゲーションのリンクにマウスを乗せたときの設定 */
+.global-nav a:hover {
+  /* リンクを少し薄く表示する */
+  opacity: 0.6;
+}
+
+/* メインビジュアル全体の設定 */
+.main-visual {
+  /* 子要素のabsolute配置の基準にする */
+  position: relative;
+  /* メインビジュアルの最大幅を1200pxにする */
+  max-width: 1200px;
+  /* メインビジュアルを横方向の中央に配置する */
+  margin: 0 auto;
+}
+
+/* メインビジュアルに使う画像の設定 */
+.main-visual__image {
+  /* 画像をブロック要素にして、下の余分な隙間を防ぐ */
+  display: block;
+  /* 画像の幅を親要素いっぱいに広げる */
+  width: 100%;
+  /* 画像を枠いっぱいに表示し、必要な部分を切り取る */
+  object-fit: cover;
+}
+
+/* メインビジュアル上に重ねるテキスト全体の設定 */
+.main-visual__copy {
+  /* 親のメインビジュアルを基準に重ねて配置する */
+  position: absolute;
+  /* 上下左右を親要素の端まで広げる */
+  inset: 0;
+  /* テキストを縦方向に並べる */
+  display: flex;
+  /* flexの並び方向を縦にする */
+  flex-direction: column;
+  /* 2つのテキストを上下方向の中央に配置する */
+  justify-content: center;
+  /* 2つのテキストを左右方向の中央に配置する */
+  align-items: center;
+  /* タイトルと説明文の間隔を30pxにする */
+  gap: 30px;
+  /* 画面が狭いときに文字が端にくっつかないよう余白をつける */
+  padding: 24px;
+  /* テキストを白色にする */
+  color: #fff;
+  /* テキストを中央揃えにする */
+  text-align: center;
+  /* 背景画像の上でも文字が読みやすいよう影をつける */
+  text-shadow: 0 1px 4px rgb(0 0 0 / 50%);
+}
+
+/* メインビジュアルのタイトルの設定 */
+.main-visual__copy h1 {
+  /* 見出しの標準の外側余白をなくす */
+  margin: 0;
+  /* 画面幅に応じて文字サイズを24pxから36pxの間で変える */
+  font-size: clamp(24px, 3vw, 36px);
+  /* 文字の行の高さを文字サイズの1.4倍にする */
+  line-height: 1.4;
+}
+
+/* メインビジュアルの説明文の設定 */
+.main-visual__copy p {
+  /* 段落の標準の外側余白をなくす */
+  margin: 0;
+  /* 画面幅に応じて文字サイズを16pxから22pxの間で変える */
+  font-size: clamp(16px, 1.8vw, 22px);
+}
+
+.about {
+  padding: 60px 20px 60px;
+}
+
+.about__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about__heading h2 {
+  margin: 0 0 30px;
+}
+
+.about__subtitle {
+  margin: 0 0 60px;
+}
+
+.about__body {
+  display: grid;
+  gap: 40px;
+  padding: 80px;
+}
+
+.about__body p {
+    margin: 0;
+    line-height: 1.8;
+}
+
+.about_images {
+    max-width: 1200px; /* メインビジュアルを横方向の中央に配置する */
+    margin: 0 auto;
+    display: block; /* 画像の幅を親要素いっぱいに広げる */
+    width: 100%; /* 画像を枠いっぱいに表示し、必要な部分を切り取る */
+    object-fit: cover;
+}
+
+
+/* Courseセクション全体の上側に余白をつける */
+.course-section {
+  padding-top: 60px;
+  color: #222222;
+}
+
+/* 英語タイトルと日本語タイトルを中央揃えにする */
+.course-section__heading {
+  text-align: center;
+}
+
+/* 英語タイトルの文字サイズと下の余白を指定する */
+.course-section__title {
+  margin: 0 0 30px;
+  font-size: 24px;
+}
+
+/* 日本語タイトルの文字サイズを指定する */
+.course-section__subtitle {
+  margin: 0;
+  font-size: 18px;
+}
+
+/* Courseの導入文を中央に配置する */
+.course-section__intro {
+  max-width: 760px;
+  margin: 60px auto;
+  padding: 0 20px;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* 3つのボックス全体の最大幅を指定する */
+.course-list {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 画像と説明を左右2列に並べる */
+.course-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "image content";
+  min-height: 480px;
+}
+
+/* 2つ目のボックスだけ、説明を左・画像を右にする */
+.course-item--reverse {
+  grid-template-areas: "content image";
+}
+
+/* 画像の枠を指定する */
+.course-item__image {
+  position: relative;
+  grid-area: image;
+  min-height: 480px;
+  overflow: hidden;
+}
+
+/* 画像を枠いっぱいに表示する */
+.course-item__image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 説明部分を上下中央に配置する */
+.course-item__content {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  min-height: 480px;
+  padding: 50px;
+  background-color: #fafafa;
+}
+
+/* 説明の見出しの余白と文字サイズを指定する */
+.course-item__content h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+/* 説明文の余白・文字サイズ・行間を指定する */
+.course-item__content p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* 共通のセクション見出し */
+.section-heading {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.section-heading__en {
+  margin: 0 0 30px;
+  font-size: 24px;
+}
+
+.section-heading__ja {
+  margin: 0;
+  font-size: 18px;
+}
+
+/* NEWSセクション */
+.news-section {
+  padding: 60px 20px;
+  color: #222222;
+}
+
+/* 300pxのカードを3枚、横並びにする */
+.news-list {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  justify-content: center;
+  gap: 20px;
+}
+
+/* カード全体をクリックできるようにする */
+.news-card {
+  display: block;
+  width: 300px;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* カードの画像サイズを指定する */
+.news-card__image {
+  display: block;
+  width: 300px;
+  height: 180px;
+  object-fit: cover;
+  transition: filter 0.2s;
+}
+
+/* 日付と本文の内側余白を指定する */
+.news-card__body {
+  padding-top: 24px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* 日付を独立した行にする */
+.news-card__body time {
+  display: block;
+}
+
+/* 日付と本文の間隔を指定する */
+.news-card__body p {
+  margin: 24px 0 0;
+}
+
+/* カードのどこにマウスを乗せても反応させる */
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgb(0 0 0 / 15%);
+}
+
+/* ホバー時に画像を少し暗くする */
+.news-card:hover .news-card__image {
+  filter: brightness(0.9);
+}
+
+/* キーボード操作でもカードの位置を見つけやすくする */
+.news-card:focus-visible {
+  outline: 3px solid #222222;
+  outline-offset: 4px;
+}
+
+/* Moreと送信ボタンで共通して使うスタイル */
+.action-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 60px;
+  margin: 60px auto 0;
+  border: 0;
+  background-color: #ffd61a;
+  color: #ffffff;
+  font-size: 18px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* ボタンにマウスを乗せたときの色 */
+.action-button:hover {
+  background-color: #e8c20b;
+}
+
+/* ACCESSセクション */
+.access-section {
+  padding: 60px 20px;
+  background-color: #fafafa;
+  color: #222222;
+}
+
+/* 地図を中央に配置する */
+.access-map {
+  max-width: 1200px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+/* 地図を表示枠いっぱいに広げる */
+.access-map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* 学校情報全体の幅と上下の余白を指定する */
+.access-info {
+  display: grid;
+  gap: 30px;
+  width: 600px;
+  margin: 60px auto 0;
+}
+
+/* 学校情報の各行を、項目名と内容の2列にする */
+.access-info__row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  column-gap: 50px;
+}
+
+/* dtとddのブラウザー標準余白をなくす */
+.access-info__row dt,
+.access-info__row dd {
+  margin: 0;
+}
+
+/* メールアドレスの色を本文に合わせる */
+.access-info a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* CONTACTセクション */
+.contact-section {
+  padding: 60px 20px 0;
+  color: #222222;
+}
+
+/* お問い合わせ前の説明文を中央揃えにする */
+.contact-intro {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* 説明文の段落間に余白をつける */
+.contact-intro p {
+  margin: 0 0 24px;
+}
+
+/* フォーム全体を幅640pxで中央に配置する */
+.contact-form {
+  width: 640px;
+  margin: 70px auto 0;
+  border-top: 1px solid #bfbfbf;
+}
+
+/* フォームの各行を、ラベル240px・入力部分400pxにする */
+.form-row {
+  display: grid;
+  grid-template-columns: 240px 400px;
+  align-items: start;
+  padding: 8px 0;
+  border-bottom: 1px solid #bfbfbf;
+}
+
+/* フォームの左側にある項目名の設定 */
+.form-row__label {
+  padding: 8px 16px 0 0;
+  font-size: 16px;
+}
+
+/* フォームの右側の入力欄の設定 */
+.form-row__control {
+  min-width: 0;
+  padding: 0;
+}
+
+/* fieldsetのブラウザー標準枠線と余白をなくす */
+fieldset.form-row__control {
+  border: 0;
+}
+
+/* テキスト入力欄と選択欄の共通設定 */
+.form-control {
+  width: 328px;
+  max-width: 100%;
+  height: 36px;
+  padding: 6px 8px;
+  border: 1px solid #bfbfbf;
+  border-radius: 0;
+  background-color: #ffffff;
+  color: #222222;
+  font: inherit;
+}
+
+/* 詳細入力欄の高さを指定する */
+.form-control--textarea {
+  height: 140px;
+  resize: vertical;
+}
+
+/* 志望動機の選択肢を縦に並べる */
+.motivation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* チェックボックスと選択肢の文字を横並びにする */
+.motivation-list label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 送信ボタンの下にフッターまでの余白をつける */
+.contact-form .action-button {
+  margin-top: 30px;
+  margin-bottom: 140px;
+}
+
+/* フッター */
+.site-footer {
+  padding: 30px 20px;
+  background-color: #707070;
+  color: #ffffff;
+  text-align: center;
+}
